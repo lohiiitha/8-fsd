@@ -1,0 +1,101 @@
+ReactJS – React Router, Updating the Screen
+              Steps to Execute ReactJS Program
+              Step 1: Install Node.js
+              1. Go to the Node.js website.
+              2. Download and install the LTS version.
+              3. After installation, open Command Prompt and check:
+              4. node -v
+              5. npm -v
+              Step 2: Create a New React Project
+              In your command prompt (or VS Code terminal), type: 
+              npx create-react-app react-lab
+              This creates a new folder named react-lab with all required files.
+              Step 3: Open the Project
+              cd react-lab
+              Then open it in VS Code or any editor:
+              code .
+              Step 4: Install React Router
+              For routing example, install React Router DOM:
+              npm install react-router-dom
+              Step 5: Replace Code in src/App.js
+              Open src/App.js and replace the code with the React Router example:
+              
+
+a. Write a program for routing to different pages using react router
+  React Router is a special library in React that helps you move between pages in your web 
+  app without refreshing the whole page.
+  Normally, websites reload the page each time you click a link — but React Router lets you 
+  switch pages instantly because it uses the Single Page Application (SPA) concept.
+  It uses a few main components:  BrowserRouter → wraps the entire app and enables routing.
+   Routes → holds all your page routes.
+   Route → defines which component should show for each URL.
+   Link → used to create clickable navigation links (instead of <a> tags).
+
+PROGRAM
+  import React from "react";
+  import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+  function Home() {
+  return <h2>This is Home Page</h2>;
+  }
+  function About() {
+  return <h2>This is About Page</h2>;
+  }
+  function Contact() {
+  return <h2>This is Contact Page</h2>;
+  }
+  export default function App() { 
+  return (
+  <Router>
+  <div>
+  <h1>React Router Example</h1>
+  <nav>
+  <Link to="/">Home</Link> |{" "}
+  <Link to="/about">About</Link> |{" "}
+  <Link to="/contact">Contact</Link>
+  </nav>
+  <hr />
+  <Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/contact" element={<Contact />} />
+  </Routes>
+  </div>
+  </Router>
+  );
+  } .
+
+
+Output: b. Write a program for updating the screen.
+  1. React automatically updates the screen when state changes.
+  2. Components can manage their own state using useState().
+  3. Changing state causes React to re-render the affected part.
+  4. React uses the Virtual DOM to detect and update only changed elements.
+  5. This makes React apps fast, interactive, and dynamic.
+  For Updating Screen Example
+  Create a new file inside src/ folder with the name of UpdateScreen.js
+
+
+PROGRAM
+  import React, { useState } from "react";
+  function UpdateScreen() {
+  const [count, setCount] = useState(0);
+  return (
+  <div style={{ textAlign: "center" }}>
+  <h1>React Screen Update Example</h1>
+  <h2>Count: {count}</h2>
+  <button onClick={() => setCount(count + 1)}>Increase</button>
+  <button onClick={() => setCount(count - 1)}>Decrease</button>
+  </div>
+  );
+  }
+  export default UpdateScreen;
+  Now open App.js:
+  import UpdateScreen from "./UpdateScreen";
+  function App() {
+   return (
+   <div>
+   <UpdateScreen />
+   </div>
+   );
+  }
+  export default App;
